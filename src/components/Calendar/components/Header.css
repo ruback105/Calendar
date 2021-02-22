@@ -1,0 +1,42 @@
+.container.calendar-header {
+    padding: 100px 3% 20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.container.calendar-header .col-right,
+.container.calendar-header .col-left {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.container.calendar-header .col-right button {
+    margin: 0 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.container.calendar-header .col-right .current-month {
+    min-width: 190px;
+    text-align: center;
+}
+
+.container.calendar-header .col-right button.current {
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243b55, #141e30); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #243b55,
+        #141e30
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: var(--text-primary);
+    padding: 10px;
+    visibility: hidden;
+}
+
+.container.calendar-header .col-right button.current.active {
+    visibility: visible;
+}

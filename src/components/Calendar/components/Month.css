@@ -1,0 +1,33 @@
+.month .month__week-days {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243b55, #141e30); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #243b55,
+        #141e30
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.month .month__week-days span {
+    width: calc(100% / 7);
+    text-align: center;
+    margin: auto;
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+.month .month__days {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 1px solid #000;
+}
+
+.month .month__days .month__day {
+    position: relative;
+}

@@ -1,0 +1,55 @@
+.container.profile {
+    padding-top: 100px;
+    margin-bottom: 50px;
+}
+
+.profile__dashboard {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.profile__title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.profile__dashboard {
+    margin-top: 50px;
+}
+
+.profile__navigation {
+    height: auto;
+    border-bottom: 1px solid var(--background-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.profile__navigation span {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243b55, #141e30); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #243b55,
+        #141e30
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: var(--text-primary);
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.41);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.41);
+    cursor: pointer;
+}
+
+.profile__navigation span:hover {
+    background: initial;
+    color: var(--text-secondary);
+}
+
+.profile__navigation span.active {
+    background: initial;
+    color: var(--text-secondary);
+}

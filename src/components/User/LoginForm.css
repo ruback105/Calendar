@@ -1,0 +1,80 @@
+div.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+div.login .login__title {
+    margin: 50px 0 0;
+    color: var(--text-primary);
+}
+
+div.login .login__form {
+    display: flex;
+    height: 100%;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.login .login__form input[type="email"],
+div.login .login__form input[type="password"] {
+    width: 100%;
+    margin: 25px 0;
+    height: 60px;
+    padding: 20px;
+}
+
+.login__keep_logged {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.login__keep_logged .MuiCheckbox-root,
+.login__keep_logged .MuiCheckbox-colorSecondary.Mui-checked {
+    color: var(--text-primary);
+}
+
+.login__keep_logged label {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+div.login .login__form .btn {
+    width: 40%;
+    height: 60px;
+    margin-top: auto;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+@media (max-width: 420px) {
+    div.login .login__title {
+        margin: 25px 0 0;
+    }
+
+    div.login .login__form input[type="email"],
+    div.login .login__form input[type="password"] {
+        margin: 15px 0;
+    }
+
+    div.login .login__form .btn {
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container.login {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container.login {
+        width: 50%;
+    }
+}

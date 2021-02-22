@@ -1,0 +1,64 @@
+div.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+div.register .register__title {
+    margin: 50px 0 0;
+    color: var(--text-primary);
+}
+
+div.register .register__form {
+    display: flex;
+    height: 100%;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.register .register__form input[type="email"],
+div.register .register__form input[type="password"] {
+    width: 100%;
+    margin: 25px 0;
+    height: 60px;
+    padding: 20px;
+}
+
+div.register .register__form .btn {
+    width: 40%;
+    height: 60px;
+    margin-top: auto;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+@media (max-width: 420px) {
+    div.register .register__title {
+        margin: 25px 0 0;
+    }
+
+    div.register .register__form input[type="email"],
+    div.register .register__form input[type="password"] {
+        margin: 15px 0;
+    }
+
+    div.register .register__form .btn {
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container.login {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container.login {
+        width: 50%;
+    }
+}
