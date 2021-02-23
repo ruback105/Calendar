@@ -1,0 +1,92 @@
+.contact-us.container {
+    padding-top: 100px;
+}
+
+.contact-us.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px 0 100px;
+}
+
+.contact-us.wrapper .col-left,
+.contact-us.wrapper .col-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-us.wrapper .col-left {
+    flex: 0.3;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.contact-us.wrapper .col-left img {
+    padding: 70px 70px 30px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.contact-us.wrapper .col-left h3 {
+    padding: 30px 30px 50px;
+    text-align: center;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.contact-us.wrapper .col-right {
+    -webkit-box-shadow: 1px 0px 4px 0px #000000;
+    box-shadow: 1px 0px 4px 0px #000000;
+    flex: 0.5;
+}
+
+.contact-us.wrapper .col-right .label {
+    text-align: center;
+    padding: 30px;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.contact-us.wrapper .col-right form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.contact-us.wrapper .col-right form input[type="text"],
+.contact-us.wrapper .col-right form input[type="email"] {
+    height: 50px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.contact-us.wrapper .col-right form textarea {
+    max-height: 120px;
+    min-height: 50px;
+    height: 75px;
+    max-width: 100%;
+    min-width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.contact-us.wrapper .col-right form button {
+    margin: auto auto 30px;
+    width: 50%;
+    height: 50px;
+    border: none;
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243b55, #141e30); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #243b55,
+        #141e30
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: var(--text-primary);
+    font-size: 1.4rem;
+}

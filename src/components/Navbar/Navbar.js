@@ -22,7 +22,7 @@ const Navbar = () => {
               <i className="fas fa-adjust fa-2x"></i>
             </li>
           </Link>
-          <Link to="/">
+          <Link to="/contact-us">
             {' '}
             <li className="menu-item">
               <i className="far fa-envelope fa-2x"></i>

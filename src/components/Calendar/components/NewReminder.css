@@ -1,3 +1,7 @@
+.container.new-reminder {
+    position: fixed;
+}
+
 .container.new-reminder::before {
     content: "";
     position: fixed;

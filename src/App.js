@@ -1,6 +1,6 @@
 import './App.css'
 import { Navbar, Footer } from './components'
-import { Login, Profile, Home, TermsConditions, PrivacyPolicy } from './pages'
+import { Login, Profile, Home, TermsConditions, PrivacyPolicy, ContactUs } from './pages'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 
@@ -20,6 +20,7 @@ function App() {
             component={TermsConditions}
           />
           <Route path="/privacy-policy" exact component={PrivacyPolicy} />
+          <Route path="/contact-us" exact component={ContactUs} />
         </Switch>
         <Footer />
       </Router>

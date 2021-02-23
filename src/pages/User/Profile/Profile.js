@@ -29,7 +29,7 @@ const Profile = () => {
             Friends
           </span>
         </nav>
-        <ProfileDashboard />
+        {activeTab === 1 ? <ProfileDashboard /> : activeTab === 2 ? '' : ''}
       </div>
     </section>
   )

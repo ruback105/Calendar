@@ -5,7 +5,7 @@ import moment from 'moment'
 import './Month.css'
 
 const Month = () => {
-  const [{ current, active }, dispatch] = useDataLayerValue()
+  const [{ active }, dispatch] = useDataLayerValue()
   const totalMonthFields = 42
   const activeMonthDays = active.daysInMonth()
   const rowShift = active.startOf('month').day()
