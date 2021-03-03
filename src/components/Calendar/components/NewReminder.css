@@ -36,8 +36,6 @@
 }
 
 .reminder__form {
-    height: 400px;
-    width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,6 +55,18 @@
         #141e30
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     z-index: -1;
+}
+
+#reminder-title {
+    width: 80%;
+}
+
+.reminder__form .trigger {
+    width: 80%;
+}
+
+.reminder__form .trigger {
+    color: var(--text-primary);
 }
 
 .reminder__form input,
@@ -93,4 +103,18 @@
 
 .react-datepicker__triangle {
     left: 50px !important;
+}
+
+@media screen and (min-width: 480px) {
+    .reminder__form {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .reminder__form {
+        width: 500px;
+        height: 500px;
+    }
 }

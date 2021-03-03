@@ -2,15 +2,31 @@ import React from 'react'
 import { setLoginEmail, setLoginPassword } from '../../actions'
 import { useDataLayerValue } from '../../DataLayer.js'
 import { Checkbox } from '@material-ui/core'
+import { loginUser } from '../../api/User'
 import './LoginForm.css'
 
 const LoginForm = () => {
   const [{ loginEmail, loginPassword }, dispatch] = useDataLayerValue()
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
 
-    window.location.href = '/profile'
+    console.log('huj')
+    const response = await loginUser(loginEmail, loginPassword)
+
+    console.log(response)
+
+    // /** Checking if response have errors */
+    // if (response.errors) {
+    //   let errors = {}
+    //   response.errors.map((error) => {
+    //     errors[error.param] = error.msg
+    //   })
+    //   setErrors(errors)
+    // } else {
+    //   setErrors([])
+    //   loginUser(registerEmail)
+    // }
   }
 
   return (

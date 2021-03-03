@@ -9,7 +9,7 @@
 .container.calendar-header .col-left {
     display: flex;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1rem;
 }
 
 .container.calendar-header .col-right button {
@@ -20,7 +20,6 @@
 }
 
 .container.calendar-header .col-right .current-month {
-    min-width: 190px;
     text-align: center;
 }
 
@@ -39,4 +38,26 @@
 
 .container.calendar-header .col-right button.current.active {
     visibility: visible;
+}
+
+@media screen and (min-width: 480px) {
+    .container.calendar-header .col-right .current-month {
+        min-width: 190px;
+    }
+
+    .container.calendar-header .col-right,
+    .container.calendar-header .col-left {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container.calendar-header .col-right .current-month {
+        min-width: 220px;
+    }
+
+    .container.calendar-header .col-right,
+    .container.calendar-header .col-left {
+        font-size: 1.6rem;
+    }
 }

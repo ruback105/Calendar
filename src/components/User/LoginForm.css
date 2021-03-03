@@ -8,7 +8,7 @@ div.login {
 }
 
 div.login .login__title {
-    margin: 50px 0 0;
+    margin: 25px 0 0;
     color: var(--text-primary);
 }
 
@@ -53,17 +53,9 @@ div.login .login__form .btn {
 }
 
 @media (max-width: 420px) {
-    div.login .login__title {
-        margin: 25px 0 0;
-    }
-
     div.login .login__form input[type="email"],
     div.login .login__form input[type="password"] {
         margin: 15px 0;
-    }
-
-    div.login .login__form .btn {
-        margin-bottom: 10px;
     }
 }
 

@@ -4,12 +4,13 @@ import {
   setReminderState,
   setReminderTime,
 } from '../../../actions'
+import { useWindowDimensions } from '../../../hooks/useWindowDimensions'
 import { useDataLayerValue } from '../../../DataLayer.js'
 import './Day.css'
 
 const Day = ({ day }) => {
   const [{ active, current }, dispatch] = useDataLayerValue()
-
+  const { height, width } = useWindowDimensions()
   const getReminder = () => {
     setReminderDate(
       `${active.format('Y-MM')}-${day.toString().length > 1 ? day : '0' + day}`,
@@ -21,19 +22,23 @@ const Day = ({ day }) => {
 
   return (
     <>
-      <div className="day__day">
+      <div className="day__day" onClick={() => width < 768 && getReminder()}>
         <h1>{day}</h1>
       </div>
-      <div className="day__reminder">
-        <div className="content"></div>
-      </div>
-      <div className="day__actions">
-        <div className="buttons">
-          <button className="set-reminder" onClick={() => getReminder()}>
-            New reminder
-          </button>
-        </div>
-      </div>
+      {width > 767 && (
+        <>
+          <div className="day__reminder">
+            <div className="content"></div>
+          </div>
+          <div className="day__actions">
+            <div className="buttons">
+              <button className="set-reminder" onClick={() => getReminder()}>
+                New reminder
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </>
   )
 }

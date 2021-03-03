@@ -4,7 +4,7 @@
 }
 
 .profile__dashboard {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -24,9 +24,12 @@
     border-bottom: 1px solid var(--background-secondary);
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
 .profile__navigation span {
+    width: 100%;
+    text-align: center;
     padding: 15px 30px;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -52,4 +55,14 @@
 .profile__navigation span.active {
     background: initial;
     color: var(--text-secondary);
+}
+
+@media screen and (min-width: 768px) {
+    .profile__navigation {
+        flex-direction: row;
+    }
+
+    .profile__navigation span {
+        width: 200px;
+    }
 }

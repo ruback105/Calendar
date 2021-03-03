@@ -8,7 +8,7 @@ div.register {
 }
 
 div.register .register__title {
-    margin: 50px 0 0;
+    margin: 25px 0 0;
     color: var(--text-primary);
 }
 
@@ -20,10 +20,15 @@ div.register .register__form {
     align-items: center;
 }
 
+div.register .register__form div {
+    width: 100%;
+    position: relative;
+}
+
 div.register .register__form input[type="email"],
 div.register .register__form input[type="password"] {
     width: 100%;
-    margin: 25px 0;
+    margin: 15px 0;
     height: 60px;
     padding: 20px;
 }
@@ -37,15 +42,6 @@ div.register .register__form .btn {
 }
 
 @media (max-width: 420px) {
-    div.register .register__title {
-        margin: 25px 0 0;
-    }
-
-    div.register .register__form input[type="email"],
-    div.register .register__form input[type="password"] {
-        margin: 15px 0;
-    }
-
     div.register .register__form .btn {
         margin-bottom: 10px;
     }
@@ -54,6 +50,11 @@ div.register .register__form .btn {
 @media (min-width: 768px) {
     .container.login {
         width: 70%;
+    }
+
+    div.register .register__form input[type="email"],
+    div.register .register__form input[type="password"] {
+        margin: 25px 0;
     }
 }
 

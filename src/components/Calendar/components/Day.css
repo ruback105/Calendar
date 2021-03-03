@@ -35,10 +35,6 @@
     width: 100%;
 }
 
-.month .month__day .day__day {
-    padding-left: 10px;
-}
-
 .month .month__day .day__reminder {
     height: 100px;
     overflow: hidden;
@@ -57,4 +53,10 @@
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: var(--text-primary);
     border: 1px solid #141e30;
+}
+
+@media screen and (min-width: 480px) {
+    .month .month__day .day__day {
+        padding-left: 10px;
+    }
 }

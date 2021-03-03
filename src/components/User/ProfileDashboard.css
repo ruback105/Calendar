@@ -1,6 +1,6 @@
 .profile__wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     margin-top: 50px;
 }
@@ -8,6 +8,7 @@
 .profile__wrapper .col-left .profile__user_image {
     height: 250px;
     width: 250px;
+    margin: 0 auto;
 }
 
 .profile__wrapper .col-left .profile__user_image img {
@@ -57,9 +58,11 @@
 }
 
 .profile__wrapper .col-right .profile__data div label {
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    flex: 0.3;
+    flex: 0.3 1;
+    width: 80%;
+    word-break: break-word;
 }
 
 .profile__wrapper .col-right .profile__data div input {
@@ -78,10 +81,16 @@
 
 .profile__wrapper .col-right .profile__data button {
     padding: 15px 0;
-    width: 50%;
+    width: 80%;
     margin: 50px auto 0;
     background: #141e30;
     background: linear-gradient(to right, #243b55, #141e30);
     color: var(--text-primary);
     cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .profile__wrapper {
+        flex-direction: row;
+    }
 }

@@ -68,13 +68,6 @@ export const setActive = (active, dispatch) => {
   })
 }
 
-export const setReminderContent = (reminderContent, dispatch) => {
-  dispatch({
-    type: 'SET_REMINDER_CONTENT',
-    reminderContent: reminderContent,
-  })
-}
-
 export const setReminderDate = (reminderDate, dispatch) => {
   dispatch({
     type: 'SET_REMINDER_DATE',

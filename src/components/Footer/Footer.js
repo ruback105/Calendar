@@ -48,19 +48,19 @@ const Footer = () => {
           <h1 className="label">Follow us on</h1>
           <div className="footer__icons">
             <a href="https://www.instagram.com/saltomax/" target="blank">
-              <i className="fab fa-instagram fa-3x"></i>
+              <i className="fab fa-instagram"></i>
             </a>
             <a href="https://www.facebook.com/artur.pushko" target="blank">
-              <i className="fab fa-facebook fa-3x"></i>
+              <i className="fab fa-facebook"></i>
             </a>
             <a
               href="https://www.youtube.com/channel/UCSmcbyReaBc5_P9j_VE2E6Q"
               target="blank"
             >
-              <i className="fab fa-youtube fa-3x"></i>
+              <i className="fab fa-youtube"></i>
             </a>
             <a href="https://vk.com/saltonax" target="blank">
-              <i className="fab fa-vk fa-3x"></i>
+              <i className="fab fa-vk"></i>
             </a>
           </div>
         </div>

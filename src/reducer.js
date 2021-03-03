@@ -11,7 +11,6 @@ export const initialState = {
   current: moment(),
   currentTime: moment().format('HH:mm'),
   active: moment(),
-  reminderContent: '',
   reminderDate: '',
   reminderTime: '',
 }
@@ -78,12 +77,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         active: action.active,
-      }
-    }
-    case 'SET_REMINDER_CONTENT': {
-      return {
-        ...state,
-        reminderContent: action.reminderContent,
       }
     }
     case 'SET_REMINDER_DATE': {
