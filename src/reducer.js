@@ -2,12 +2,8 @@ import moment from 'moment'
 
 export const initialState = {
   loginEmail: '',
-  loginPassword: '',
-  registerEmail: '',
-  registerPassword: '',
-  confirmRegisterPassword: '',
-  newsletterEmail: '',
   loginActive: true,
+  userToken: '',
   current: moment(),
   currentTime: moment().format('HH:mm'),
   active: moment(),
@@ -25,40 +21,16 @@ const reducer = (state, action) => {
         loginEmail: action.email,
       }
     }
-    case 'SET_LOGIN_PASSWORD': {
-      return {
-        ...state,
-        loginPassword: action.password,
-      }
-    }
-    case 'SET_REGISTER_EMAIL': {
-      return {
-        ...state,
-        registerEmail: action.email,
-      }
-    }
-    case 'SET_REGISTER_PASSWORD': {
-      return {
-        ...state,
-        registerPassword: action.password,
-      }
-    }
-    case 'SET_CONFIRM_REGISTER_PASSWORD': {
-      return {
-        ...state,
-        confirmRegisterPassword: action.password,
-      }
-    }
-    case 'SET_NEWSLETTER_EMAIL': {
-      return {
-        ...state,
-        newsletterEmail: action.newsletterEmail,
-      }
-    }
     case 'SET_LOGIN_ACTIVE': {
       return {
         ...state,
         loginActive: action.loginActive,
+      }
+    }
+    case 'SET_USER_TOKEN': {
+      return {
+        ...state,
+        userToken: action.userToken,
       }
     }
     case 'SET_CURRENT': {

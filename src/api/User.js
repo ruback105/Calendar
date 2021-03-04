@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const loginUser = async ( loginEmail, loginPassword ) => {
+export const loginUser = async (loginEmail, loginPassword) => {
   try {
-    const response = await fetch(`http://localhost:4000/login`, {
+    const response = await fetch(`http://localhost:4000/user/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -13,8 +13,7 @@ export const loginUser = async ( loginEmail, loginPassword ) => {
       }),
     })
 
-    console.log(response)
-    return response
+    return response.json()
     // return response
   } catch (err) {
     console.log(err)
@@ -36,15 +35,15 @@ export const registerUser = async (
         confirmRegisterPassword,
       }),
     })
-    return response
+    return response.json()
   } catch (err) {
     console.error(err)
   }
 }
 
 // getUser
-export const getUserById = async ({ email }) => {
-  return fetch(`/user/:${email}`, {
+export const getUserByEmail = async ( email ) => {
+  return fetch(`/user:${email}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

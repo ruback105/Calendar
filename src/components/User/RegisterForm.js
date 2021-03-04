@@ -1,30 +1,28 @@
 import React, { useState } from 'react'
-import {
-  setRegisterEmail,
-  setRegisterPassword,
-  setConfirmRegisterPassword,
-} from '../../actions'
+import { setLoginEmail, setUserToken } from '../../actions'
 import { useDataLayerValue } from '../../DataLayer.js'
 import { loginUser, registerUser } from '../../api/User'
+
 import './RegisterForm.css'
 
 const RegisterForm = () => {
-  const [
-    { registerEmail, registerPassword, confirmRegisterPassword },
-    dispatch,
-  ] = useDataLayerValue()
   const [errors, setErrors] = useState([])
+  const [registerEmail, setRegisterEmail] = useState('')
+  const [registerPassword, setRegisterPassword] = useState('')
+  const [confirmRegisterPassword, setConfirmRegisterPassword] = useState('')
+  const [{ loginEmail, loginToken }, dispatch] = useDataLayerValue()
 
   const onSubmit = async (e) => {
     e.preventDefault()
 
-    const response = await registerUser(
+    let response = await registerUser(
       registerEmail,
       registerPassword,
       confirmRegisterPassword,
-    ).then((resp) => resp.json())
+    )
 
     /** Checking if response have errors */
+    console.log(response)
     if (response.errors) {
       let errors = {}
       response.errors.map((error) => {
@@ -33,7 +31,20 @@ const RegisterForm = () => {
       setErrors(errors)
     } else {
       setErrors([])
-      loginUser(registerEmail)
+      response = await loginUser(registerEmail, registerPassword)
+
+      if (response.errors) {
+        let errors = {}
+        response.errors.map((error) => {
+          errors[error.param] = error.msg
+        })
+        setErrors(errors)
+      } else if (response.token) {
+        setErrors([])
+        console.log(response.token)
+        setUserToken(response.token, dispatch)
+        setLoginEmail(registerEmail, dispatch)
+      }
     }
   }
 
@@ -52,9 +63,7 @@ const RegisterForm = () => {
               placeholder="Email"
               value={registerEmail}
               id="register-email"
-              onChange={(event) =>
-                setRegisterEmail(event.target.value, dispatch)
-              }
+              onChange={(event) => setRegisterEmail(event.target.value)}
             />
             {errors && errors.registerEmail && (
               <p className="error-msg">* {errors.registerEmail}</p>
@@ -65,9 +74,7 @@ const RegisterForm = () => {
               type="password"
               placeholder="Password"
               value={registerPassword}
-              onChange={(event) =>
-                setRegisterPassword(event.target.value, dispatch)
-              }
+              onChange={(event) => setRegisterPassword(event.target.value)}
             />
             {errors && errors.registerPassword && (
               <p className="error-msg">* {errors.registerPassword}</p>
@@ -79,7 +86,7 @@ const RegisterForm = () => {
               placeholder="Confirm password"
               value={confirmRegisterPassword}
               onChange={(event) =>
-                setConfirmRegisterPassword(event.target.value, dispatch)
+                setConfirmRegisterPassword(event.target.value)
               }
             />
             {errors && errors.confirmRegisterPassword && (

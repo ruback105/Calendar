@@ -1,32 +1,32 @@
-import React from 'react'
-import { setLoginEmail, setLoginPassword } from '../../actions'
+import React, { useState } from 'react'
+import { setLoginEmail, setUserToken } from '../../actions'
 import { useDataLayerValue } from '../../DataLayer.js'
 import { Checkbox } from '@material-ui/core'
 import { loginUser } from '../../api/User'
 import './LoginForm.css'
 
 const LoginForm = () => {
-  const [{ loginEmail, loginPassword }, dispatch] = useDataLayerValue()
-
+  const [{ loginEmail, loginToken }, dispatch] = useDataLayerValue()
+  const [errors, setErrors] = useState([])
+  const [loginPassword, setLoginPassword] = useState('')
   const onSubmit = async (e) => {
     e.preventDefault()
 
-    console.log('huj')
     const response = await loginUser(loginEmail, loginPassword)
 
     console.log(response)
-
-    // /** Checking if response have errors */
-    // if (response.errors) {
-    //   let errors = {}
-    //   response.errors.map((error) => {
-    //     errors[error.param] = error.msg
-    //   })
-    //   setErrors(errors)
-    // } else {
-    //   setErrors([])
-    //   loginUser(registerEmail)
-    // }
+    /** Checking if response have errors */
+    if (response.errors) {
+      let errors = {}
+      response.errors.map((error) => {
+        errors[error.param] = error.msg
+      })
+      setErrors(errors)
+    } else if (response.token) {
+      setErrors([])
+      console.log(response.token)
+      setUserToken(response.token, dispatch)
+    }
   }
 
   return (
@@ -45,7 +45,7 @@ const LoginForm = () => {
             type="password"
             placeholder="Password"
             value={loginPassword}
-            onChange={(event) => setLoginPassword(event.target.value, dispatch)}
+            onChange={(event) => setLoginPassword(event.target.value)}
           />
           <div className="login__keep_logged">
             <Checkbox name="keep-logged"></Checkbox>
