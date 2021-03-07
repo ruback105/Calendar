@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { setLoginEmail, setUserToken } from '../../actions'
 import { useDataLayerValue } from '../../DataLayer.js'
 import { loginUser, registerUser } from '../../api/User'
-
+import Cookies from 'universal-cookie'
 import './RegisterForm.css'
 
 const RegisterForm = () => {
@@ -10,7 +10,8 @@ const RegisterForm = () => {
   const [registerEmail, setRegisterEmail] = useState('')
   const [registerPassword, setRegisterPassword] = useState('')
   const [confirmRegisterPassword, setConfirmRegisterPassword] = useState('')
-  const [{ loginEmail, loginToken }, dispatch] = useDataLayerValue()
+  const [{}, dispatch] = useDataLayerValue()
+  const cookies = new Cookies()
 
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -41,9 +42,14 @@ const RegisterForm = () => {
         setErrors(errors)
       } else if (response.token) {
         setErrors([])
-        console.log(response.token)
-        setUserToken(response.token, dispatch)
+        cookies.set('userToken', response.token, { path: '/' })
+        setUserToken(cookies.get('userToken'), dispatch)
         setLoginEmail(registerEmail, dispatch)
+        /** TODO - instead of saving email in cookies we can use token, 
+         * that actually have encrypted emmail and expiration time
+         */
+        cookies.set('loginEmail', registerEmail, { path: '/' })
+        setLoginEmail(cookies.get('loginEmail'), dispatch)
       }
     }
   }

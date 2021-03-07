@@ -1,11 +1,13 @@
 import moment from 'moment'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export const initialState = {
-  loginEmail: '',
+  loginEmail: cookies.get('loginEmail'),
   loginActive: true,
-  userToken: '',
+  userToken: cookies.get('userToken'),
   current: moment(),
-  currentTime: moment().format('HH:mm'),
   active: moment(),
   reminderDate: '',
   reminderTime: '',
@@ -37,12 +39,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         current: action.current,
-      }
-    }
-    case 'SET_CURRENT_TIME': {
-      return {
-        ...state,
-        currentTime: action.currentTime,
       }
     }
     case 'SET_ACTIVE': {

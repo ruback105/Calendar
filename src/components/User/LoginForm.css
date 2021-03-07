@@ -20,6 +20,11 @@ div.login .login__form {
     align-items: center;
 }
 
+div.login .login__form div {
+    width: 100%;
+    position: relative;
+}
+
 div.login .login__form input[type="email"],
 div.login .login__form input[type="password"] {
     width: 100%;
@@ -29,7 +34,6 @@ div.login .login__form input[type="password"] {
 }
 
 .login__keep_logged {
-    width: 100%;
     display: flex;
     align-items: center;
 }

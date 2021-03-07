@@ -9,6 +9,8 @@ const ProfileDashboard = () => {
     e.preventDefault()
   }
 
+  const clickHandler = (e) => {}
+
   return (
     <div className="profile__wrapper">
       <div className="col-left">
@@ -16,7 +18,7 @@ const ProfileDashboard = () => {
           <img src={image} alt="test" />
         </div>
         <div className="profile__user_image_change">
-          <button onClick="">Change</button>
+          <button onClick={() => clickHandler}>Change</button>
         </div>
       </div>
       <div className="col-right">

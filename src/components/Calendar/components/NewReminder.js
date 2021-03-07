@@ -3,24 +3,56 @@ import {
   setReminderState,
   setReminderDate,
   setReminderTime,
+  setActive,
 } from '../../../actions'
 import { useDataLayerValue } from '../../../DataLayer.js'
+import { setReminder } from '../../../api/Reminder'
+import moment from 'moment'
 import './NewReminder.css'
 
 const NewReminder = () => {
+  const [errors, setErrors] = useState([])
   const [reminderTitle, setReminderTitle] = useState('')
   const [reminderContent, setReminderContent] = useState('')
   const [reminderActive, setReminderActive] = useState(false)
-  
+
   const [
-    { reminderState, reminderDate, reminderTime },
+    { reminderState, reminderDate, reminderTime, loginEmail},
     dispatch,
   ] = useDataLayerValue()
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
 
-    // set reminder
+    const response = await setReminder(
+      reminderTitle,
+      reminderContent,
+      reminderDate,
+      reminderTime,
+      reminderActive,
+      loginEmail,
+    )
+
+    console.log(response)
+
+    if (response.errors) {
+      let errors = {}
+      response.errors.map((error) => {
+        errors[error.param] = error.msg
+      })
+      console.log(errors)
+      if (errors.userEmail) {
+        window.location.replace('/login')
+      }
+      setErrors(errors)
+    } else {
+      // setReminderState(!reminderState, dispatch)
+      // setReminderTitle('')
+      // setReminderContent('')
+
+      // TODO - implement funcitonality to reload calendar on reminder set, instead of whole page
+      window.location.reload()
+    }
   }
 
   return (
@@ -30,24 +62,29 @@ const NewReminder = () => {
           <div className="reminer__wrapper">
             <h1 className="label">New reminder</h1>
             <form className="reminder__form" onSubmit={(e) => onSubmit(e)}>
-              <input
-                type="text"
-                value={reminderTitle}
-                id="reminder-title"
-                placeholder="Reminder title"
-                onChange={(event) =>
-                  setReminderTitle(event.target.value, dispatch)
-                }
-              />
-              <textarea
-                type="email"
-                placeholder="New reminder"
-                value={reminderContent}
-                id="reminder-content"
-                onChange={(event) =>
-                  setReminderContent(event.target.value, dispatch)
-                }
-              />
+              <div className="reminder-title">
+                <input
+                  type="text"
+                  value={reminderTitle}
+                  id="reminder-title"
+                  placeholder="Reminder title"
+                  onChange={(event) => setReminderTitle(event.target.value)}
+                />
+                {errors && errors.reminderTitle && (
+                  <p className="error-msg">* {errors.reminderTitle}</p>
+                )}
+              </div>
+              <div className="reminder-content">
+                <textarea
+                  placeholder="New reminder"
+                  value={reminderContent}
+                  id="reminder-content"
+                  onChange={(event) => setReminderContent(event.target.value)}
+                />
+                {errors && errors.reminderContent && (
+                  <p className="error-msg">* {errors.reminderContent}</p>
+                )}
+              </div>
               <div className="trigger">
                 <input
                   type="checkbox"
@@ -62,18 +99,14 @@ const NewReminder = () => {
                   <input
                     type="date"
                     value={reminderDate}
-                    onChange={(event) =>
-                      setReminderDate(event.target.value, dispatch)
-                    }
+                    onChange={(event) => setReminderDate(event.target.value)}
                   ></input>
                 </div>
                 <div className="time">
                   <input
                     type="time"
                     value={reminderTime}
-                    onChange={(event) =>
-                      setReminderTime(event.target.value, dispatch)
-                    }
+                    onChange={(event) => setReminderTime(event.target.value)}
                   />
                 </div>
               </div>
@@ -86,7 +119,6 @@ const NewReminder = () => {
               onClick={() => setReminderState(!reminderState, dispatch)}
             ></i>
           </div>
-          r
         </div>
       )}
     </>

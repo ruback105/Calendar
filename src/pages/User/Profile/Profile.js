@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ProfileDashboard } from '../../../components'
+import { ProfileDashboard, RemindersDashboard } from '../../../components'
 
 import './Profile.css'
 
@@ -29,7 +29,13 @@ const Profile = () => {
             Friends
           </span>
         </nav>
-        {activeTab === 1 ? <ProfileDashboard /> : activeTab === 2 ? '' : ''}
+        {activeTab === 1 ? (
+          <ProfileDashboard />
+        ) : activeTab === 2 ? (
+          <RemindersDashboard />
+        ) : (
+          ''
+        )}
       </div>
     </section>
   )

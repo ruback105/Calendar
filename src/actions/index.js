@@ -33,13 +33,6 @@ export const setCurrent = (current, dispatch) => {
   })
 }
 
-export const setCurrentTime = (currentTime, dispatch) => {
-  dispatch({
-    type: 'SET_CURRENT_TIME',
-    currentTime: currentTime,
-  })
-}
-
 export const setActive = (active, dispatch) => {
   dispatch({
     type: 'SET_ACTIVE',

@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Cookies from 'universal-cookie'
 import './Navbar.css'
 
 const Navbar = () => {
+  const cookies = new Cookies()
+
   return (
     <nav className="container navbar">
       <Link to="/">
@@ -28,7 +31,8 @@ const Navbar = () => {
               <i className="far fa-envelope fa-2x"></i>
             </li>
           </Link>
-          <Link to="/login">
+
+          <Link to={cookies.get('userToken') ? '/profile' : '/login'}>
             <li className="menu-item">
               <i className="far fa-user fa-2x"></i>
             </li>

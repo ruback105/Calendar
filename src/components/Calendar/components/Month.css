@@ -23,11 +23,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    border: 1px solid #000;
 }
 
-.month .month__days .month__day {
-    position: relative;
+@media screen and (min-width: 768px) {
+    .month .month__days {
+        border: 1px solid #000;
+        justify-content: center;
+    }
 }

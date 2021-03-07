@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const loginUser = async (loginEmail, loginPassword) => {
   try {
     const response = await fetch(`http://localhost:4000/user/login`, {

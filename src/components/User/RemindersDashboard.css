@@ -1,0 +1,40 @@
+section.reminders {
+    margin-top: 50px;
+}
+
+section.reminders .reminder-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243b55, #141e30); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #243b55,
+        #141e30
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: var(--text-primary);
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+section.reminders .reminder-wrapper div {
+    overflow: hidden;
+}
+
+section.reminders .reminder-wrapper .title {
+    text-align: left;
+    flex: 0.2;
+}
+
+section.reminders .reminder-wrapper .content {
+    text-align: center;
+    flex: 0.6;
+}
+
+section.reminders .reminder-wrapper .time {
+    flex: 0.2;
+    text-align: right;
+}

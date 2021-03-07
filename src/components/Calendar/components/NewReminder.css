@@ -41,6 +41,13 @@
     align-items: center;
 }
 
+.reminder__form .reminder-title,
+.reminder__form .reminder-content {
+    position: relative;
+    width: 80%;
+    margin: 10px auto;
+}
+
 .reminder__form:after {
     content: "";
     position: absolute;
@@ -58,7 +65,8 @@
 }
 
 #reminder-title {
-    width: 80%;
+    width: 100%;
+    margin: 0 auto 10px;
 }
 
 .reminder__form .trigger {

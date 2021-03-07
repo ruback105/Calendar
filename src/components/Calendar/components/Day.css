@@ -1,11 +1,14 @@
 .month .month__day {
-    width: calc(100% / 7);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 1px solid #000;
-    padding: 10px;
+    border-radius: 50%;
+    position: relative;
+    width: 11.5vw;
+    height: 11.5vw;
+    margin: 5px;
 }
 
 .month .month__day.disabled:before {
@@ -17,6 +20,7 @@
     width: 100%;
     background-color: #000;
     opacity: 0.3;
+    border-radius: 50%;
 }
 
 .month .month__day:not(.disabled):hover,
@@ -35,9 +39,40 @@
     width: 100%;
 }
 
+.month .month__day .day__day {
+    text-align: center;
+}
+
 .month .month__day .day__reminder {
-    height: 100px;
+    height: 150px;
     overflow: hidden;
+}
+
+.month .month__day .day__reminder .reminder-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #141e30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243b55, #141e30); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #243b55,
+        #141e30
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: var(--text-primary);
+    padding: 5px;
+    margin: 5px 0;
+}
+
+.month .month__day .reminder-wrapper .title {
+    flex: 0.5;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.month .month__day .reminder-wrapper .time {
+    flex: 0.5;
+    text-align: right;
 }
 
 .month .month__day .day__actions button {
@@ -55,8 +90,29 @@
     border: 1px solid #141e30;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 768px) {
+    .month .month__day {
+        border-radius: 0;
+        height: auto;
+        width: calc(100% / 7);
+        margin: 0;
+        padding: 10px;
+    }
+
+    .month .month__day.disabled:before {
+        border-radius: 0;
+    }
+
     .month .month__day .day__day {
+        text-align: unset;
         padding-left: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .month .month__day {
+        width: 11vw;
+        height: 11vw;
+        margin: 3px;
     }
 }
