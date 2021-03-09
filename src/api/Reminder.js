@@ -70,3 +70,24 @@ export const getRemindersByDate = async (userEmail, date) => {
     console.log(err)
   }
 }
+
+export const deleteReminderById = async (reminderID) => {
+  try {
+    const response = await fetch(
+      `http://localhost:4000/reminder/${reminderID}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    )
+
+    if (response.status == 200) {
+      return response.json()
+    }
+    // return response
+  } catch (err) {
+    console.log(err)
+  }
+}

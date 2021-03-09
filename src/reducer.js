@@ -1,7 +1,7 @@
 import moment from 'moment'
-import Cookies from 'universal-cookie';
+import Cookies from 'universal-cookie'
 
-const cookies = new Cookies();
+const cookies = new Cookies()
 
 export const initialState = {
   loginEmail: cookies.get('loginEmail'),
@@ -11,6 +11,7 @@ export const initialState = {
   active: moment(),
   reminderDate: '',
   reminderTime: '',
+  calendarLoaded: false,
 }
 
 const reducer = (state, action) => {
@@ -63,6 +64,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         reminderTime: action.reminderTime,
+      }
+    }
+    case 'SET_CALENDAR_LOADED': {
+      return {
+        ...state,
+        calendarLoaded: action.calendarLoaded,
       }
     }
     default: {

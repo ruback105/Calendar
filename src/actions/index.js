@@ -60,3 +60,10 @@ export const setReminderTime = (reminderTime, dispatch) => {
     reminderTime: reminderTime,
   })
 }
+
+export const setCalendarLoaded = (calendarLoaded, dispatch) => {
+  dispatch({
+    type: 'SET_CALENDAR_LOADED',
+    calendarLoaded: calendarLoaded,
+  })
+}

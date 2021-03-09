@@ -17,7 +17,7 @@ const LoginForm = () => {
     const response = await loginUser(loginEmail, loginPassword)
 
     /** Checking if response have errors */
-    if (response.errors) {
+    if (response && response.errors) {
       let errors = {}
       response.errors.map((error) => {
         errors[error.param] = error.msg

@@ -9,6 +9,11 @@
     width: 11.5vw;
     height: 11.5vw;
     margin: 5px;
+    cursor: pointer;
+}
+
+.month .month__day:has(.has_reminders) {
+    background-color: red;
 }
 
 .month .month__day.disabled:before {
@@ -32,20 +37,33 @@
     width: 100%;
 }
 
-.month .month__day .day__day,
-.month .month__day .day__reminder,
-.month .month__day .day__actions {
-    margin: 10px 0;
-    width: 100%;
-}
-
 .month .month__day .day__day {
     text-align: center;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.month .month__day .day__day.has_reminders {
+    background-color: yellow;
+    border-radius: 50%;
 }
 
 .month .month__day .day__reminder {
     height: 150px;
-    overflow: hidden;
+    overflow: overlay;
+    visibility: hidden;
+    display: none;
+}
+
+.month .month__day .day__reminder.active {
+    visibility: visible;
+}
+
+.month .month__day .day__reminder::-webkit-scrollbar {
+    width: 0px;
 }
 
 .month .month__day .day__reminder .reminder-wrapper {
@@ -62,6 +80,15 @@
     color: var(--text-primary);
     padding: 5px;
     margin: 5px 0;
+    position: relative;
+}
+
+.month .month__day .day__reminder .reminder-wrapper:hover :is(.title, .time) {
+    visibility: hidden;
+}
+
+.month .month__day .day__reminder .reminder-wrapper:hover i {
+    visibility: visible;
 }
 
 .month .month__day .reminder-wrapper .title {
@@ -70,9 +97,29 @@
     white-space: nowrap;
 }
 
+.month .month__day .reminder-wrapper .content {
+    display: none;
+}
+
 .month .month__day .reminder-wrapper .time {
     flex: 0.5;
     text-align: right;
+}
+
+.month .month__day .reminder-wrapper i {
+    position: absolute;
+    right: 5px;
+    visibility: hidden;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.month .month__day .reminder-wrapper i:hover {
+    cursor: pointer;
+}
+
+.month .month__day .day__actions {
+    display: none;
 }
 
 .month .month__day .day__actions button {
@@ -93,10 +140,11 @@
 @media screen and (min-width: 768px) {
     .month .month__day {
         border-radius: 0;
-        height: auto;
         width: calc(100% / 7);
         margin: 0;
         padding: 10px;
+        cursor: initial;
+        height: 19vh;
     }
 
     .month .month__day.disabled:before {
@@ -106,9 +154,52 @@
     .month .month__day .day__day {
         text-align: unset;
         padding-left: 10px;
+        height: initial;
+        display: initial;
+    }
+
+    .month .month__day .day__day.has_reminders {
+        background-color: transparent;
+    }
+
+    .month .month__day .day__actions button,
+    .month .month__day .day__reminder,
+    .month .month__day .day__actions {
+        display: initial;
+    }
+
+    .month .month__day .day__day,
+    .month .month__day .day__reminder,
+    .month .month__day .day__actions {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .month .month__day .day__actions button.view-reminders {
+        display: none;
     }
 }
 
+@media screen and (max-width: 767px) {
+    .month .month__day:hover .day__day.has_reminders ~ .day__actions {
+        display: block;
+    }
+
+    .month .month__day:hover .day__day.has_reminders ~ .day__actions .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .month .month__day:hover .day__day.has_reminders ~ .day__actions button {
+        margin: 0 5px;
+        padding: 10px 15px;
+    }
+}
 @media screen and (max-width: 480px) {
     .month .month__day {
         width: 11vw;

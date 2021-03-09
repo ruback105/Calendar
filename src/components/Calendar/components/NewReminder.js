@@ -3,11 +3,9 @@ import {
   setReminderState,
   setReminderDate,
   setReminderTime,
-  setActive,
 } from '../../../actions'
 import { useDataLayerValue } from '../../../DataLayer.js'
 import { setReminder } from '../../../api/Reminder'
-import moment from 'moment'
 import './NewReminder.css'
 
 const NewReminder = () => {
@@ -46,12 +44,12 @@ const NewReminder = () => {
       }
       setErrors(errors)
     } else {
-      // setReminderState(!reminderState, dispatch)
-      // setReminderTitle('')
-      // setReminderContent('')
+      setReminderState(!reminderState, dispatch)
+      setReminderTitle('')
+      setReminderContent('')
 
-      // TODO - implement funcitonality to reload calendar on reminder set, instead of whole page
-      window.location.reload()
+      // // TODO - implement funcitonality to reload calendar on reminder set, instead of whole page
+      // window.location.reload()
     }
   }
 

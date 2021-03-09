@@ -83,13 +83,14 @@
     margin: 10px;
 }
 
-.reminder__form #reminder-content {
-    max-width: 80%;
-    max-height: 100%;
-    min-width: 80%;
-    min-height: 20%;
+.reminder__form textarea {
+    margin: 10px 0;
     width: 100%;
-    height: 50%;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 20vh;
+    height: 20vh;
+    min-height: 10vh;
 }
 
 .reminder__form .date-time {
@@ -116,13 +117,11 @@
 @media screen and (min-width: 480px) {
     .reminder__form {
         width: 400px;
-        height: 400px;
     }
 }
 
 @media screen and (min-width: 768px) {
     .reminder__form {
         width: 500px;
-        height: 500px;
     }
 }

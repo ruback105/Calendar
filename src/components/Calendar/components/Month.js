@@ -47,14 +47,14 @@ const Month = () => {
 
         {[...Array(activeMonthDays)].map((e, day) => (
           <span className="month__day" key={++day}>
-            <Day day={++day} />
+            <Day day={++day} activeMonthDays={activeMonthDays} />
           </span>
         ))}
 
         {[...Array(totalMonthFields - activeMonthDays - rowShift)].map(
           (e, day) => (
             <span className="month__day disabled" key={++day}>
-              <Day day={++day} disabled={true}/>
+              <Day day={++day} disabled={true} />
             </span>
           ),
         )}

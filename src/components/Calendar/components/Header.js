@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import { useDataLayerValue } from '../../../DataLayer.js'
-import {setActive } from '../../../actions'
+import { setActive } from '../../../actions'
 import moment from 'moment'
 import './Header.css'
 
 const Header = () => {
   const [{ current, active }, dispatch] = useDataLayerValue()
-  const [time, setTime] = useState(moment().format('HH:mm'));
-  // TODO - create functonality that wont reload whle calendar component
-  setTimeout(() => {
-    setTime(moment().format('HH:mm'))
-  }, 5000)
+  const [time, setTime] = useState(moment().format('HH:mm'))
+
+  window.setInterval(
+    function () {
+      setTime(moment().format('HH:mm'))
+    }.bind(this),
+    5000,
+  )
 
   const nextMonth = () => {
     setActive(active.add(1, 'M'), dispatch)

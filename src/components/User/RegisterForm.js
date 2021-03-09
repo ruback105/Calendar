@@ -34,7 +34,7 @@ const RegisterForm = () => {
       setErrors([])
       response = await loginUser(registerEmail, registerPassword)
 
-      if (response.errors) {
+      if (response && response.errors) {
         let errors = {}
         response.errors.map((error) => {
           errors[error.param] = error.msg
@@ -45,7 +45,7 @@ const RegisterForm = () => {
         cookies.set('userToken', response.token, { path: '/' })
         setUserToken(cookies.get('userToken'), dispatch)
         setLoginEmail(registerEmail, dispatch)
-        /** TODO - instead of saving email in cookies we can use token, 
+        /** TODO - instead of saving email in cookies we can use token,
          * that actually have encrypted emmail and expiration time
          */
         cookies.set('loginEmail', registerEmail, { path: '/' })

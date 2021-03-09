@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import image from '../../assets/images/human.jpg'
+import image from '../../assets/images/human.png'
 import './ProfileDashboard.css'
 
 const ProfileDashboard = () => {

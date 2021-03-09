@@ -60,7 +60,7 @@ html {
 
 p.error-msg {
   position: absolute;
-  top: 70%;
+  bottom: -30px;
   width: 100%;
   text-align: left;
   color: #ff8989;
